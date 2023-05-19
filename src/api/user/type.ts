@@ -5,7 +5,8 @@ export interface loginType {
 }
 // token类型
 interface tokenType {
-  token: string
+  token?: string,
+  message?:string
 }
 // 用户登录返回数据的类型
 export interface loginResDataType {
