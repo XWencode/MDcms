@@ -1,3 +1,14 @@
 // 引入清除默认样式
 @import './reset.scss';
 @import './variable.scss';
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $base-menu-background;
+}
+::-webkit-scrollbar-thumb {
+  background-color: aqua;
+  border-radius: 10px;
+}

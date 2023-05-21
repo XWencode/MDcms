@@ -5,10 +5,12 @@ import { LocalCache } from '@/utils/caches'
 // 引入数据类型
 import type { loginResDataType, loginType } from '@/api/user/type'
 import type {UserStateType} from './type'
+import {constantRouter} from '@/router/routes'
 const LOGIN_TOKEN = 'token'
 const useUserState = defineStore('User', {
   state: ():UserStateType => ({
-    token: LocalCache.getCache(LOGIN_TOKEN)
+    token: LocalCache.getCache(LOGIN_TOKEN),
+    menuRoutes:constantRouter //仓库存储生成菜单的路由
   }),
   actions: {
     async userLogin(loginForm: loginType) {

@@ -80,7 +80,7 @@ async function login() {
     (res) => {
       loading.value = false
       // 登录成功路由跳转
-      $router.push('/home')
+      $router.push('/')
       // 登录成功提示信息
       ElNotification({
         type: 'success',
