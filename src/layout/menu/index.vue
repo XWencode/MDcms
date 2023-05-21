@@ -34,10 +34,8 @@
 import { useRouter } from 'vue-router'
 defineProps(['menuList'])
 let $route = useRouter()
-const goRouter = (vc:any,a:any) => {
+const goRouter = (vc:any) => {
   $route.push(vc.index)
-  console.log(a);
-
 }
 </script>
 <!-- 为递归组件(自己)命名 -->

@@ -7,7 +7,7 @@ export const constantRouter = [
     meta: { title: '登录', isshow: false }
   },
   {
-    name: 'Layout',
+    name: '',
     path: '/',
     component: () => import('@/layout/index.vue'),
     meta: { title: 'layout', isshow: true },

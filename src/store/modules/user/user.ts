@@ -1,16 +1,19 @@
 // 创建用户相关的小仓库
 import { defineStore } from 'pinia'
-import { reqLogin } from '@/api/user'
+import { reqLogin,reqUserInfo } from '@/api/user'
 import { LocalCache } from '@/utils/caches'
 // 引入数据类型
 import type { loginResDataType, loginType } from '@/api/user/type'
 import type {UserStateType} from './type'
 import {constantRouter} from '@/router/routes'
-const LOGIN_TOKEN = 'token'
+import { LOGIN_TOKEN } from '@/global/global'
 const useUserState = defineStore('User', {
   state: ():UserStateType => ({
     token: LocalCache.getCache(LOGIN_TOKEN),
-    menuRoutes:constantRouter //仓库存储生成菜单的路由
+    menuRoutes:constantRouter, //仓库存储生成菜单的路由
+    // 存储用户名称和图像
+    username:'',
+    avatar:''
   }),
   actions: {
     async userLogin(loginForm: loginType) {
@@ -22,6 +25,13 @@ const useUserState = defineStore('User', {
         return 'ok'
       } else {
         return Promise.reject(res.data.message)
+      }
+    },
+    async getUserInfo(){
+      let res = await reqUserInfo()
+      if(res.code==200){
+        this.username=res.data.checkUser.username
+        this.avatar=res.data.checkUser.avatar
       }
     }
   },

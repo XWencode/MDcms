@@ -3,8 +3,7 @@ function createUserList() {
     return [
         {
             userId: 1,
-            avatar:
-                'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+            avatar:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fgroup_topic%2Fraw%2Fpublic%2Fp106878681.jpg&refer=http%3A%2F%2Fimg3.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1687244794&t=2e01f38ba38231052b20d54b09bfba13',
             username: 'admin',
             password: '111111',
             desc: '平台管理员',

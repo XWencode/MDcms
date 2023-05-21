@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 const useSettingStore=defineStore('setting',{
   state:()=> ({
-    fold:false
+    fold:false,
+    isrefresh:false
   }),
 })
 

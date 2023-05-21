@@ -1,5 +1,7 @@
 import axios from "axios";
 import { ElMessage  } from "element-plus";
+import { LocalCache } from "./caches";
+import { LOGIN_TOKEN } from "@/global/global";
 
 const request=axios.create({
   baseURL:import.meta.env.VITE_APP_BASE_API,
@@ -7,7 +9,8 @@ const request=axios.create({
 })
 
 request.interceptors.request.use((config)=>{
-
+  // 发请求时请求头中携带token
+  config.headers.token=LocalCache.getCache(LOGIN_TOKEN)
   return config
 })
 
