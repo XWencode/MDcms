@@ -14,6 +14,8 @@ import "@/styles/index.scss";
 import router from "./router";
 // 引入pinia
 import pinia from './store'
+// 引入路由守卫
+import './permisstion'
 const app = createApp(App);
 // app.use(ElementPlus)
 // 引入自定义插件

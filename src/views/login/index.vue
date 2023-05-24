@@ -32,15 +32,16 @@
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import useUserState from '@/store/modules/user/user.js'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import getTime from '@/utils/time'
 // 收集账号密码数据
-let login_Form = reactive({ username: 'admin', password: '111111' })
+let login_Form = reactive({ username: 'admin', password: 'atguigu123' })
 // 点击登录按钮加载效果
 let loading = ref(false)
 let userStore = useUserState()
 let $router = useRouter()
+let $route = useRoute()
 let FormRef = ref()
 
 // 自定义校验规则函数
@@ -52,7 +53,7 @@ const validateUsername = (rlue: any, value: any, callback: any) => {
   }
 }
 const validatepassword = (rlue: any, value: any, callback: any) => {
-  if (/^\d{6,18}$/.test(value)) {
+  if (value.trim().length >= 6 && value.trim().length <= 18) {
     callback()
   } else {
     callback(new Error('密码长度为6到18位'))
@@ -80,7 +81,9 @@ async function login() {
     (res) => {
       loading.value = false
       // 登录成功路由跳转
-      $router.push('/')
+      // 判断有没有要重定向的路由路径
+      let redirect: any = $route.query.redirect
+      $router.push({ path: redirect || '/' })
       // 登录成功提示信息
       ElNotification({
         type: 'success',

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ElMessage  } from "element-plus";
 import { LocalCache } from "./caches";
-import { LOGIN_TOKEN } from "@/global/global";
+import { LOGIN_TOKEN } from "@/global";
 
 const request=axios.create({
   baseURL:import.meta.env.VITE_APP_BASE_API,

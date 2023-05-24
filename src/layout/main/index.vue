@@ -23,6 +23,10 @@ watch(()=>settingStore.isrefresh,()=>{
 </script>
 
 <style lang="scss" scoped>
+.main{
+  width: 100%;
+  height: 100%;
+}
 .fade-enter-from{
   opacity: 0;
 }

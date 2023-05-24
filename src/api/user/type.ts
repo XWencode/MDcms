@@ -3,35 +3,28 @@ export interface loginType {
   username: string
   password: string
 }
-// token类型
-interface tokenType {
-  token?: string,
-  message?:string
-}
-// 用户登录返回数据的类型
-export interface loginResDataType {
-  code: number
-  data: tokenType
+
+// 所有返回值都有的数据类型
+export interface ResponseData{
+  code:number,
+  message:string,
+  ok:boolean
 }
 
-interface userInfoType {
-  userId: number
+// 用户登录返回数据的类型
+export interface loginResDataType extends ResponseData {
+  data: string
+}
+
+interface userInfoType{
   avatar: string
-  username: string
-  password: string
-  desc: string
+  name: string
   roles: string[]
   buttons: string[]
   routes: string[]
-  token: string
-}
-
-interface user {
-  checkUser: userInfoType
 }
 
 // 获取用户返回信息的类型
-export interface userReqInfoType {
-  code: number
-  data: user
+export interface userResInfoType extends ResponseData  {
+  data: userInfoType
 }

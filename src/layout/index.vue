@@ -3,8 +3,8 @@
     <!-- 左侧菜单 -->
     <div class="layout_slider" :class="{ fold: settingStore.fold }">
       <div class="logo">
-        <img class="logo_img" :src="setting.logo" />
-        <p class="logo_title">{{ setting.title }}</p>
+        <img class="logo_img" :src="LOGO" />
+        <p class="logo_title">{{ TITLE }}</p>
       </div>
       <el-scrollbar class="menu_scroll">
         <el-menu
@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import setting from '@/setting'
+import { LOGO,TITLE } from '@/global'
 import Menu from './menu/index.vue'
 import Main from './main/index.vue'
 import Tabbar from './tabbar/index.vue'
@@ -99,7 +99,6 @@ let $route = useRoute()
     position: absolute;
     width: calc(100% - $base-menu-width);
     height: calc(100% - $base-menu-tabber);
-    background-color: tomato;
     top: $base-menu-tabber;
     left: $base-menu-width;
     padding: 20px;
