@@ -85,9 +85,9 @@
 </template>
 
 <script setup lang="ts">
-import { reqTrademarkList, reqAddTrademark, reqDeleteTrademark } from '@/api/product/index'
+import { reqTrademarkList, reqAddTrademark, reqDeleteTrademark } from '@/api/product/trademark/index'
 import { onMounted, computed, reactive, ref, nextTick } from 'vue'
-import type { Records, trademarkresType, TradeMarkType } from '@/api/product/type'
+import type { Records, trademarkresType, TradeMarkType } from '@/api/product/trademark/type'
 import type { UploadProps } from 'element-plus'
 import type { FormRules } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'

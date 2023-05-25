@@ -7,7 +7,7 @@ enum API {
   // 修改品牌信息
   UPDATATRADEMARK_URL = '/admin/product/baseTrademark/update',
   // 删除品牌信息
-  DELETETRADEMARK_URL='/admin/product/baseTrademark/remove/'
+  DELETETRADEMARK_URL='/admin/product/baseTrademark/remove/',
 }
 // 获取已有品牌数据接口
 export const reqTrademarkList = (page: number, limit: number) =>

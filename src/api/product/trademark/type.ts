@@ -1,4 +1,4 @@
-import type { ResponseData } from '../user/type'
+import type { ResponseData } from '../../user/type'
 
 // 已有的品牌的ts类型
 export interface TradeMarkType{
