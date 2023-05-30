@@ -7,7 +7,7 @@
             v-model="categoryStore.c1Id"
             placeholder="请选择属性"
             size="large"
-            :disabled="scene==1"
+            :disabled="scene!=0"
             @change="getC2"
           >
             <el-option

@@ -27,7 +27,9 @@ export interface attrType{
   attrName:string,
   categoryId:number|string,
   categoryLevel:number,
-  attrValueList:attrvalListType
+  attrValueList:attrvalListType,
+  // 用来保存sku时收集参数的ts类型
+  attrIdAndAttrValueId?:string
 }
 //每个对象的数组的ts类型
 export type attrListType=attrType[]
