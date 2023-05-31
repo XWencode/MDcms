@@ -191,12 +191,12 @@ const savaSkuInfo = async () => {
     return prev
   }, [])
   let res: any = await reqAddSku(skuInfo)
-  if(res.code==200){
+  if (res.code == 200) {
     ElMessage({
-      type:'success',
-      message:'添加sku成功'
+      type: 'success',
+      message: '添加sku成功'
     })
-  }else{
+  } else {
     ElMessage.error('添加失败')
   }
   // 添加成功切换场景
