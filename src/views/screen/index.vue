@@ -1,6 +1,6 @@
 <template>
   <div class="screen">
-    screen数据大屏
+    数据大屏
   </div>
 </template>
 

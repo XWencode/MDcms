@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+项目重难点笔记.md
 node_modules
 .DS_Store
 dist

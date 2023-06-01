@@ -135,8 +135,6 @@ import type {
   saleAttrResType,
   allSaleAttrListType
 } from '@/api/product/spu/type'
-import useCategoryStore from '@/store/modules/category'
-let categoryStore = useCategoryStore()
 // 接收父组件传递的数据
 const emit = defineEmits(['changeScene'])
 // 整个spu品牌列表
@@ -319,7 +317,7 @@ const saveSpu = async () => {
   spuInfo.value.spuImageList = spuImageList.value.map((item: any) => {
     return {
       imgName: item.name,
-      imaUrl: (item.response && item.response.data) || item.url
+      imgUrl: (item.response && item.response.data) || item.url
     }
   })
   spuInfo.value.spuSaleAttrList = saleAttrList.value
