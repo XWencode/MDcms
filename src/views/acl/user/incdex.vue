@@ -43,7 +43,7 @@
             <el-button type="primary" size="small" icon="user" @click="assignRoles(row)"
               >角色分配</el-button
             >
-            <el-button type="primary" size="small" icon="edit" @click="editUserInfo(row)"
+            <el-button type="warning" size="small" icon="edit" @click="editUserInfo(row)"
               >编辑</el-button
             >
             <el-popconfirm
@@ -300,6 +300,12 @@ const addUserInfo = () => {
 }
 // 点击编辑的回调
 const editUserInfo = async (row: userInfoType) => {
+  // 清除校验信息
+  nextTick(() => {
+    formRef.value.clearValidate('username')
+    formRef.value.clearValidate('name')
+    formRef.value.clearValidate('password')
+  })
   let res: userInfoResType = await reqUserInfo(row.id as number)
   if (res.code == 200) {
     userInfo.value = res.data
