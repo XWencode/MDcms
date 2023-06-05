@@ -8,6 +8,8 @@ import App from "./App.vue";
 import "virtual:svg-icons-register";
 // 引入自定义插件对象：注册整个项目全局组件
 import gloalComponents from "@/components";
+// 暗黑模式的样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 // 引入模板的全局样式
 import "@/styles/index.scss";
 // 引入路由

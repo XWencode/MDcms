@@ -2,7 +2,30 @@
   <div class="tabbar-right">
     <el-button :icon="Refresh" circle @click="refresh"></el-button>
     <el-button :icon="FullScreen" circle @click="fullscreen"></el-button>
-    <el-button :icon="Setting" circle @click=""></el-button>
+    <el-popover placement="bottom" title="主题设置" :width="250" trigger="hover">
+      <el-form>
+        <el-form-item label="主题颜色">
+          <el-color-picker
+            v-model="color"
+            show-alpha
+            :predefine="predefineColors"
+            @change="setThemeColor"
+          />
+        </el-form-item>
+        <el-form-item label="暗黑模式">
+          <el-switch
+            v-model="dark"
+            inline-prompt
+            active-icon="Moon"
+            inactive-icon="Sunny"
+            @change="changeDark"
+          />
+        </el-form-item>
+      </el-form>
+      <template #reference>
+        <el-button :icon="Setting" circle></el-button>
+      </template>
+    </el-popover>
     <img class="img" :src="userState.avatar" />
     <!-- 下拉菜单 -->
     <el-dropdown>
@@ -20,10 +43,11 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { Setting, Refresh, FullScreen } from '@element-plus/icons-vue'
 import useSettingStore from '@/store/setting'
 import useUserState from '@/store/modules/user/user'
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router'
 let settingStore = useSettingStore()
 let userState = useUserState()
 // 获取路由器对象
@@ -47,10 +71,45 @@ const fullscreen = () => {
   }
 }
 // 退出登录
-const loginOut =async () => {
+const loginOut = async () => {
   await userState.userLogOut()
   // 跳转到登录页面 带上退出登录之前的路径
-  $router.push({path:'/login',query:{redirect:$route.path}})
+  $router.push({ path: '/login', query: { redirect: $route.path } })
+}
+// 颜色管理
+const color = ref('rgba(255, 69, 0, 0.68)')
+const predefineColors = ref([
+  '#ff4500',
+  '#ff8c00',
+  '#ffd700',
+  '#90ee90',
+  '#00ced1',
+  '#1e90ff',
+  '#c71585',
+  'rgba(255, 69, 0, 0.68)',
+  'rgb(255, 120, 0)',
+  'hsv(51, 100, 98)',
+  'hsva(120, 40, 94, 0.5)',
+  'hsl(181, 100%, 37%)',
+  'hsla(209, 100%, 56%, 0.73)',
+  '#c7158577'
+])
+// 暗黑模式开关
+const dark = ref(false)
+// 暗黑模式切换的回调
+const changeDark = () => {
+  // 获取根元素html
+  let html = document.documentElement
+  dark.value ? (html.className = 'dark') : (html.className = '')
+}
+// 设置主题颜色
+const setThemeColor = () => {
+  // document.documentElement 是全局变量时
+  const el = document.documentElement
+  // 设置 css 变量更换颜色
+  el.style.setProperty('--el-color-primary', color.value)
+  el.style.setProperty('--el-color-warning', color.value)
+  el.style.setProperty('--el-color-danger', color.value)
 }
 </script>
 
