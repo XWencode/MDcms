@@ -3,5 +3,6 @@ export interface UserStateType{
   token:string | null,
   menuRoutes:RouteRecordRaw[],
   username:string,
-  avatar:string
+  avatar:string,
+  roleBtnList:string[]
 }

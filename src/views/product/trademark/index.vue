@@ -1,7 +1,11 @@
 <template>
   <div class="trademark">
     <el-card>
-      <el-button class="addbtn" icon="plus" type="primary" @click="addTrademark"
+      <el-button class="addbtn"
+      icon="plus"
+      type="primary"
+      @click="addTrademark"
+      v-btnrole="`btn.Trademark.add`"
         >添加品牌</el-button
       >
       <!-- 商品品牌表格 -->
@@ -85,7 +89,11 @@
 </template>
 
 <script setup lang="ts">
-import { reqTrademarkList, reqAddTrademark, reqDeleteTrademark } from '@/api/product/trademark/index'
+import {
+  reqTrademarkList,
+  reqAddTrademark,
+  reqDeleteTrademark
+} from '@/api/product/trademark/index'
 import { onMounted, computed, reactive, ref, nextTick } from 'vue'
 import type { Records, trademarkresType, TradeMarkType } from '@/api/product/trademark/type'
 import type { UploadProps } from 'element-plus'
@@ -173,7 +181,6 @@ const updateTrademark = (row: TradeMarkType) => {
 }
 // 取消增加或修改的回调
 const canceladdTrademark = () => {
-
   dialogFormVisible.value = false
 }
 // 确定增加或者修改
@@ -206,7 +213,7 @@ const deleteTrademark = async (id) => {
       type: 'success',
       message: '删除成功'
     })
-      getTrademarkList(trademarkList.value.length>1 ? page.value:page.value- 1)
+    getTrademarkList(trademarkList.value.length > 1 ? page.value : page.value - 1)
   }
 }
 // 图片上传成功的回调

@@ -18,6 +18,8 @@ import router from "./router";
 import pinia from './store'
 // 引入路由守卫
 import './permisstion'
+// 引入自定义指令函数
+import { isHasBtn } from "./directive/btnRole";
 const app = createApp(App);
 // app.use(ElementPlus)
 // 引入自定义插件
@@ -26,4 +28,6 @@ app.use(gloalComponents);
 app.use(router)
 // 注册pinia
 app.use(pinia)
+// 将app传递给函数使用
+isHasBtn(app)
 app.mount("#app");

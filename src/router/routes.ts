@@ -1,5 +1,5 @@
 // 常量路由
-export const constantRouter = [
+export const constantRoute = [
   {
     name: 'Login', //路由命名
     path: '/login',
@@ -28,11 +28,20 @@ export const constantRouter = [
     meta: { title: '数据大屏', icon: 'Platform', isshow: true }
   },
   {
+    name: '404',
+    path: '/404',
+    component: () => import('@/views/404/index.vue'),
+    meta: { title: '404', isshow: false }
+  }
+]
+// 异步路由
+export const asyncRoute = [
+  {
     name: 'Acl',
     path: '/acl',
     component: () => import('@/layout/index.vue'),
     meta: { title: '权限管理', icon: 'Lock', isshow: true },
-    redirect:'/acl/user',
+    redirect: '/acl/user',
     children: [
       {
         name: 'User',
@@ -59,7 +68,7 @@ export const constantRouter = [
     path: '/product',
     component: () => import('@/layout/index.vue'),
     meta: { title: '商品管理', icon: 'Goods', isshow: true },
-    redirect:'/product/trademark',
+    redirect: '/product/trademark',
     children: [
       {
         name: 'Trademark',
@@ -86,13 +95,10 @@ export const constantRouter = [
         meta: { title: 'SPU管理', icon: 'Briefcase', isshow: true }
       }
     ]
-  },
-  {
-    name: '404',
-    path: '/404',
-    component: () => import('@/views/404/index.vue'),
-    meta: { title: '404', isshow: false }
-  },
+  }
+]
+// 任意路由
+export const anyRoute = [
   {
     name: 'Any',
     path: '/:pathMatch(.*)*',

@@ -30,7 +30,8 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         try {
           // 发请求获取用户信息
           await userState.getUserInfo()
-          next()
+          // 万一：刷新的时候是异步路由，有可能获取到用户信息、异步路由还没有加载完毕，出现页面空白效果
+          next({...to})
         } catch (error) {
           // 获取用户信息失败(也就是token过期)
           // 先退出登录
